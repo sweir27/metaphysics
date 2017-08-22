@@ -92,17 +92,9 @@
   "jest": {
     "testRegex": "/test/.*.js$",
     "setupTestFrameworkScriptFile": "<rootDir>/test/helper.js",
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/test/helper.js",
-      "/test/utils.js",
-      "/test/__mocks__"
-    ]
+    "testPathIgnorePatterns": ["/node_modules/", "/test/helper.js", "/test/utils.js", "/test/__mocks__"]
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write --trailing-comma es5 --print-width 120 --no-semi",
-      "git add"
-    ]
+    "*.js": ["prettier --write --trailing-comma es5 --print-width 120 --no-semi", "git add"]
   }
 }
