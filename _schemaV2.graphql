@@ -1605,6 +1605,12 @@ type ArtworkVersion implements Node {
   # The Image id
   defaultImageID: String
 
+  # The price of the artwork version, as range or exact price.
+  displayPrice: String
+
+  # Describes whether or not a price range should be displayed
+  displayPriceRange: Boolean
+
   # A globally unique ID.
   id: ID!
 

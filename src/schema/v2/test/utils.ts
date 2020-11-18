@@ -1,6 +1,6 @@
 // Please do not add schema imports here while stitching is an ENV flag
 //
-import { graphql, GraphQLError, GraphQLArgs } from "graphql"
+import { graphql, GraphQLError, GraphQLArgs, GraphQLSchema } from "graphql"
 import { ResolverContext } from "types/graphql"
 import { createLoadersWithAuthentication } from "lib/loaders/loaders_with_authentication"
 
@@ -53,9 +53,11 @@ export const runQuery = (
     accessToken: undefined,
     userID: undefined,
   },
-  variableValues: { [variableName: string]: any } = {}
+  variableValues: { [variableName: string]: any } = {},
+  overrideSchema?: GraphQLSchema
 ) => {
-  const { schema } = require("schema/v2")
+  const schema = overrideSchema ?? require("schema/v2").schema
+
   return runQueryOrThrow({
     schema,
     source: query,
